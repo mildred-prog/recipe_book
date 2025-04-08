@@ -44,12 +44,15 @@ INSTALLED_APPS = [
     'allauth.account',
     'allauth.socialaccount',
 
-    #Apps
-    'home',
-
-    # Other
+     # Other
     'crispy_forms',
     'crispy_bootstrap5',
+
+    #Apps
+    'home',
+    'recipes',
+
+
 ]
 
 SITE_ID = 1

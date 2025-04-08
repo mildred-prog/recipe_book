@@ -5,18 +5,17 @@
     --title: 'Raleway', sans-serif;
     --main-font: 'Roboto', sans-serif;
     
-    /* color */
+    /* Colors */
     --background: #3f006a0f;
     --blue: #0d6efd;
-    --black: #000000;
-    --off-white: #f8f9fa;
-    --white: #ffffff;
+    --black: #000;
+    --off-white: #f6f6f6;
+    --white: #fff;
     --orange: #ffbf50;
 
     /* Utils */
-    --small-box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
-    --border: 1px solid rgba(0, 0, 0, 0.1);
-
+    --small-box-shadow: 1px -1px 7px 0 #00000061;
+    --border: 1px solid #00000030;
 }
 
 html, body {
@@ -38,7 +37,7 @@ main {
     background-color: var(--white);
 }
 
-/* footer */
+/* Footer */
 footer {
     flex-shrink: 0;
     background-color: var(--off-white);
@@ -54,7 +53,7 @@ footer {
     margin: 1rem;
 }
 
-/* header */
+/* Header */
 .navbar {
     background-color: var(--off-white);
     box-shadow: var(--small-box-shadow);
@@ -73,7 +72,8 @@ img.logo {
     font-weight: 500;
 }
 
-/* form */
+/* Form */
+
 .form {
     width: 100%;
     margin: 3% auto;
