@@ -4,6 +4,8 @@ from django.contrib.auth.models import User
 from djrichtextfield.models import RichTextField
 from django_resized import ResizedImageField
 
+
+
 # Choices Fields
 MEAL_TYPES = (
     ('Breakfast', 'Breakfast'),
