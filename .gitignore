@@ -6,6 +6,7 @@ __pycache__/
 *.py[cod]
 node_modules/
 .github/
-cloudninary_python.txt
+cloudinary_python.txt
 .venv/
 env.py/
+.env
