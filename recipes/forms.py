@@ -23,7 +23,11 @@ class RecipeForm(forms.ModelForm):
         instructions = forms.CharField(widget=RichTextWidget())
 
         widgets = {
+<<<<<<< HEAD
             'description': forms.Textarea(attrs={'rows': 5}), 
+=======
+            'description': forms.Textarea(attrs={'rows': 5,}),
+>>>>>>> c4143b184631830becd95ccf91d2202f41e79ccf
         }
 
         labels = {
