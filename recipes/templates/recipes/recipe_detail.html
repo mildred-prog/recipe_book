@@ -14,12 +14,12 @@
                 <hr>
                 <p>{{recipe.description}}</p>
                 <p class="p-3"><strong>Calories: </strong> {{ recipe.calories }}</p>
-                <p class="p-3"><strong>Cuisine: </strong> {{ recipe.cuisine_types|title }}</p>
+                <p class="p-3"><strong>Cuisine: </strong> {{ recipe.cuisine_type|title }}</p>
 
                 {% if request.user == recipe.user %} 
                 <div class="text-center">
-                    <a href="{% url 'edit_recipe' recipe.id %}" class="btn btn-primary w-25">Edit</a>
-                    <a href="{% url 'delete_recipe' recipe.id %}" class="btn btn-primary w-25">Delete</a>
+                    <a href="" class="btn btn-primary w-25">Edit</a>
+                    <a href="" class="btn btn-primary w-25">Delete</a>
                 </div>
                 {% endif %}
             </div>
