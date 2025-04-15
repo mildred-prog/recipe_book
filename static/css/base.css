@@ -126,6 +126,35 @@ img.logo {
 
 }
 
+
+/* Profiles */
+
+.profile-img {
+    width: 280px;
+    margin: 0 auto;
+}
+
+.profile-img img {
+    border-radius: 8px;
+    width: 100%;
+}
+
+.profile {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.info {
+    width: 100%;
+    text-align: center;
+}
+
+.profile-recipes {
+    width: 100%;
+}
+
+
 @media screen and (min-width: 62.5em) {
     .recipe-info {
         flex-direction: row;
@@ -152,4 +181,23 @@ img.logo {
     .instructions{
         width: 66.66%;
     }
+
+    .profile {
+        flex-direction: row;
+    }
+
+    .info {
+        width: 30%;
+    }
+
+    .profile-recipes {
+        width: 70%;
+        padding: 1.5rem 3rem;
+    }
+
+    .profile-recipes {
+        text-decoration: none;
+    }
+
+
 }
