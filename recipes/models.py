@@ -1,18 +1,14 @@
 from django.db import models
 from django.contrib.auth.models import User
-
-from djrichtextfield.models import RichTextField
 from django_resized import ResizedImageField
 
+MEAL_TYPES = [
+    ('Breakfast', 'Breakfast'),
+    ('Lunch', 'Lunch'),
+    ('Dinner', 'Dinner'),
+]
 
-# Choices Fields
-MEAL_TYPES = (
-    ("Breakfast", "Breakfast"),
-    ("Lunch", "Lunch"),
-    ("Dinner", "Dinner"),
-)
-
-CUISINE_TYPES = (
+CUISINE_TYPES = [
     ("african", "African"),
     ("american", "American"),
     ("caribbean", "Caribbean"),
@@ -24,22 +20,20 @@ CUISINE_TYPES = (
     ("indonesian", "Indonesian"),
     ("european", "European"),
     ("oceanic", "Oceanic"),
-)
+]
 
 
-# Create your models here.
 class Recipe(models.Model):
-    """ "
+    """
     A model to create and manage recipes.
     """
-
     user = models.ForeignKey(
         User, related_name="recipe_owner", on_delete=models.CASCADE
     )
     title = models.CharField(max_length=300, null=False, blank=False)
     description = models.CharField(max_length=500, null=False, blank=False)
-    instructions = RichTextField(max_length=10000, null=False, blank=False)
-    ingredients = RichTextField(max_length=10000, null=False, blank=False)
+    instructions = models.TextField(max_length=10000, null=False, blank=False)
+    ingredients = models.TextField(max_length=10000, null=False, blank=False)
     image = ResizedImageField(
         size=[400, None],
         quality=75,
@@ -50,9 +44,7 @@ class Recipe(models.Model):
     )
     image_alt = models.CharField(max_length=100, null=False, blank=False)
     meal_type = models.CharField(max_length=50, choices=MEAL_TYPES, default="Breakfast")
-    cuisine_type = models.CharField(
-        max_length=50, choices=CUISINE_TYPES, default="african"
-    )
+    cuisine_type = models.CharField(max_length=50, choices=CUISINE_TYPES, default="african")
     calories = models.IntegerField()
     posted_date = models.DateTimeField(auto_now_add=True)
 
