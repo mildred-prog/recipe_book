@@ -1,16 +1,138 @@
 {% extends "base.html" %}
 
-{% block title %}Edit Recipe{% endblock %} 
+{% block title %}Edit Recipe{% endblock %}
+
+{% block extra_css %}
+<link href="https://cdn.jsdelivr.net/npm/summernote@0.9.0/dist/summernote-lite.min.css" rel="stylesheet">
+{% endblock %}
+
+{% block extra_js %}
+<script src="https://cdn.jsdelivr.net/npm/summernote@0.9.0/dist/summernote-lite.min.js"></script>
+
+<script>
+    $(document).ready(function () {
+        $('#ingredients').summernote({
+            placeholder: 'Update the ingredients...',
+            tabsize: 2,
+            height: 150,
+            toolbar: [
+              ['style', ['style']],
+              ['font', ['bold', 'underline', 'clear']],
+              ['color', ['color']],
+              ['para', ['ul', 'ol', 'paragraph']],
+              ['table', ['table']],
+              ['insert', ['link']],
+              ['view', ['help']]
+            ]
+        });
+
+        $('#instructions').summernote({
+            placeholder: 'Update the instructions...',
+            tabsize: 2,
+            height: 150,
+            toolbar: [
+              ['style', ['style']],
+              ['font', ['bold', 'underline', 'clear']],
+              ['color', ['color']],
+              ['para', ['ul', 'ol', 'paragraph']],
+              ['table', ['table']],
+              ['insert', ['link']],
+              ['view', ['help']]
+            ]
+        });
+    });
+</script>
+{% endblock %}
 
 {% block content %}
 <div class="container">
-    <form method="POST" enctype="multipart/form-data" class="p-2 form">
+    <form method="POST" enctype="multipart/form-data" class="p-2">
         <h1 class="text-center">Edit Recipe</h1>
         {% csrf_token %}
-        {{ form.media }} 
-        {{ form|crispy }}
+
+        {% if form.errors %}
+        <div class="alert alert-danger">
+            <ul class="mb-0">
+                {% for field in form %}
+                    {% for error in field.errors %}
+                        <li><strong>{{ field.label }}:</strong> {{ error }}</li>
+                    {% endfor %}
+                {% endfor %}
+                {% for error in form.non_field_errors %}
+                    <li>{{ error }}</li>
+                {% endfor %}
+            </ul>
+        </div>
+        {% endif %}
+
+        <!-- Recipe Title -->
+        <div class="mb-3">
+            <label for="title" class="form-label">Recipe Title</label>
+            <input type="text" name="title" id="title" class="form-control" value="{{ form.title.value|default_if_none:'' }}">
+        </div>
+
+        <!-- Description -->
+        <div class="mb-3">
+            <label for="description" class="form-label">Description</label>
+            <textarea name="description" id="description" class="form-control" rows="5">{{ form.description.value|default_if_none:'' }}</textarea>
+        </div>
+
+        <!-- Ingredients -->
+        <div class="mb-3">
+            <label for="ingredients" class="form-label">Ingredients</label>
+            <textarea name="ingredients" id="ingredients" class="form-control" rows="5">{{ form.ingredients.value|default_if_none:'' }}</textarea>
+        </div>
+
+        <!-- Instructions -->
+        <div class="mb-3">
+            <label for="instructions" class="form-label">Instructions</label>
+            <textarea name="instructions" id="instructions" class="form-control" rows="5">{{ form.instructions.value|default_if_none:'' }}</textarea>
+        </div>
+
+        <!-- Recipe Image -->
+        <div class="mb-3">
+            <label for="image" class="form-label">Recipe Image</label>
+            <input type="file" name="image" id="image" class="form-control">
+        </div>
+
+        <!-- Image Alt Text -->
+        <div class="mb-3">
+            <label for="image_alt" class="form-label">Image Description</label>
+            <input type="text" name="image_alt" id="image_alt" class="form-control" value="{{ form.image_alt.value|default_if_none:'' }}">
+        </div>
+
+        <!-- Meal Type -->
+        <div class="mb-3">
+            <label for="meal_type" class="form-label">Meal Type</label>
+            <select name="meal_type" id="meal_type" class="form-select">
+                <option value="">Select...</option>
+                <option value="Breakfast" {% if form.meal_type.value == 'Breakfast' %}selected{% endif %}>Breakfast</option>
+                <option value="Lunch" {% if form.meal_type.value == 'Lunch' %}selected{% endif %}>Lunch</option>
+                <option value="Dinner" {% if form.meal_type.value == 'Dinner' %}selected{% endif %}>Dinner</option>
+            </select>
+        </div>
+
+        <!-- Cuisine Type -->
+        <div class="mb-3">
+            <label for="cuisine_type" class="form-label">Cuisine Type</label>
+            <select name="cuisine_type" id="cuisine_type" class="form-select">
+                <option value="">Select...</option>
+                <option value="italian" {% if form.cuisine_type.value == 'italian' %}selected{% endif %}>Italian</option>
+                <option value="chinese" {% if form.cuisine_type.value == 'chinese' %}selected{% endif %}>Chinese</option>
+                <option value="indian" {% if form.cuisine_type.value == 'indian' %}selected{% endif %}>Indian</option>
+                <option value="american" {% if form.cuisine_type.value == 'american' %}selected{% endif %}>American</option>
+            </select>
+        </div>
+
+        <!-- Calories -->
+        <div class="mb-3">
+            <label for="calories" class="form-label">Calories</label>
+            <input type="number" name="calories" id="calories" class="form-control" value="{{ form.calories.value|default_if_none:'' }}">
+        </div>
+
+        <!-- Submit Button -->
         <div class="text-center">
-            <button type="submit" class="btn btn-primary mt-2">Edit Recipe</button>
+            <button type="submit" class="btn btn-primary">Update Recipe</button>
         </div>
     </form>
 </div>

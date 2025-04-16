@@ -1,1 +1,35 @@
 {% extends 'base.html' %}
+
+{% block title %}Home{% endblock %} 
+
+
+{% block content %} 
+
+
+    <section id="hero">
+        <div class="container">
+            <h1 class="display-4">Your One Stop Recipe Book</h1>
+            <p class="lead">A Collaborative Recipe Book for Every Table, Every Culture, Every Day</h1>
+        </div>
+    </section>
+
+    <section id="page-text">
+        <h2 class="contrast organic-heading">Welcome to Our Recipe Book</h2>
+        <p>Welcome to a recipe book that celebrates the joy of cooking and the beauty of diversity. In these pages, you’ll find cherished dishes from kitchens around the world—shared by individuals who believe in the power of food to bring us together.
+            Plan your month with delicious breakfasts, hearty lunches, and soulful dinners. Whether you're adding a beloved family recipe, discovering new flavors, or curating your perfect meal planner, this book is your space to create, share, and connect.
+            Let every meal be a story, every recipe a bridge, and every bite a celebration.</p>
+    </section>
+
+    <section>
+        <div class="recipe-cont">
+            {% for recipe in recipes %} 
+                <a href="{% url 'recipe_detail' recipe.id %}" class="img-container">
+                    <img src="{{recipe.image.url}}" alt="{{recipe.image_alt}}" style="width: 100%">
+                    <div class="centered"><h2>{{recipe.title}}</h2></div>
+                </a>
+            {% endfor %}
+        </div>
+    </section>
+</div>
+
+{% endblock %}
