@@ -44,10 +44,8 @@ class RecipeDetail(DetailView):
     model = Recipe
     context_object_name = "recipe"
 
-
 class AddRecipe(LoginRequiredMixin, CreateView):
     """Add recipe view"""
-
     template_name = "recipes/add_recipe.html"
     model = Recipe
     form_class = RecipeForm
@@ -56,7 +54,8 @@ class AddRecipe(LoginRequiredMixin, CreateView):
     def form_valid(self, form):
         form.instance.user = self.request.user
         return super(AddRecipe, self).form_valid(form)
-    
+ 
+ 
 class EditRecipe(LoginRequiredMixin, UserPassesTestMixin, UpdateView):
     """Edit a recipe"""
     template_name = 'recipes/edit_recipe.html'
