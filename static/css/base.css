@@ -7,7 +7,7 @@
     
     /* Colors */
     --background: #3f006a0f;
-    --blue: #0d6efd;
+    --blue: #a048a8;
     --black: #000;
     --off-white: #f6f6f6;
     --white: #fff;
@@ -37,6 +37,30 @@ main {
     background-color: var(--white);
 }
 
+
+#hero {
+    height: 100dvh;
+    width: 100dvw;
+    background:url("../images/food-book.jpg") no-repeat center center/cover;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+ }
+
+.display-4 {
+    font-size: calc(1.5rem + 3.7vw);
+    font-weight: 700;
+    line-height: 1.2;
+    color: #ffffff;
+    background-color: rgba(189, 112, 191, 0.9); /* Purple background with slight transparency */
+    padding: 1rem 2rem;
+    border-radius: 1rem;
+    display: inline-block;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+
 /* Footer */
 footer {
     flex-shrink: 0;
@@ -64,7 +88,7 @@ a.nav-link {
 }
 
 img.logo {
-    width: 8rem;
+    width: 10rem;
 }
 
 .active {
@@ -72,14 +96,83 @@ img.logo {
     font-weight: 500;
 }
 
+
+
+#page-text {
+    background-color: #fdf3f8; /* Light, soft background for contrast */
+    color: #4a154b; /* Deep purple for readable text */
+    padding: 3rem 1.5rem;
+    text-align: center;
+}
+
+#page-text h2 {
+    font-size: 2.25rem;
+    font-weight: 700;
+    color: #bd70bf; /* Matches hero background */
+    margin-bottom: 1.5rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+#page-text p {
+    font-size: 1.125rem;
+    line-height: 1.8;
+    max-width: 900px;
+    margin: 0 auto;
+    font-weight: 400;
+}
+
+.bg-purple {
+    background-color: #bd70bf;
+}
+
 /* Form */
 
-.form {
-    width: 100%;
-    margin: 3% auto;
-    box-shadow: var(--small-box-shadow);
-    border-radius: 5px;
-}
+form {
+    max-width: 600px;
+    margin: 2rem auto;
+    background-color: #fff0f8;
+    padding: 2rem;
+    border-radius: 1.5rem;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  }
+  
+  label.form-label {
+    font-weight: 600;
+    color: #5b2753;
+  }
+  
+  .form-control,
+  .form-select {
+    border-radius: 0.5rem;
+    border: 1px solid #bd70bf;
+    padding: 0.5rem 1rem;
+    font-size: 1rem;
+  }
+  
+  .form-control:focus,
+  .form-select:focus {
+    border-color: #a048a8;
+    box-shadow: 0 0 0 0.2rem rgba(189, 112, 191, 0.25);
+  }
+  
+  .btn-primary {
+    background-color: #bd70bf;
+    border-color: #bd70bf;
+    font-weight: 600;
+    padding: 0.5rem 2rem;
+    border-radius: 2rem;
+    transition: background-color 0.3s ease;
+  }
+  
+  .btn-primary:hover {
+    background-color: #a048a8;
+    border-color: #a048a8;
+  }
+  
+  .text-center {
+    margin-top: 2rem;
+  }
 
 /* Recipes */
 
@@ -186,6 +279,25 @@ h3 > a {
 
 
 @media screen and (min-width:40em){
+
+    .responsive-heading {
+        font-size: calc(1.5rem + 3.7vw);
+    }
+
+    }
+    #page-text {
+        padding: 3rem 2rem;
+    }
+
+    #page-text h2 {
+        font-size: 2.25rem; /* 36px */
+    }
+
+    #page-text p {
+        font-size: 1.125rem; /* 18px */
+        max-width: 85%;
+    }
+
     .form {
         width: 50%;
     }
@@ -201,6 +313,19 @@ h3 > a {
 }
 
 @media screen and (min-width: 62.5em) {
+    #page-text {
+        padding: 4rem 2.5rem;
+    }
+
+    #page-text h2 {
+        font-size: 2.75rem; /* 44px */
+    }
+
+    #page-text p {
+        font-size: 1.25rem; /* 20px */
+        max-width: 60%;
+    }
+
     .recipe-info {
         flex-direction: row;
         border: 1px solid var(--black);
