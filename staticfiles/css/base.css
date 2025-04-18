@@ -1,0 +1,373 @@
+@import url('https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100..900;1,100..900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
+/* header */
+:root {
+    /* font */
+    --title: 'Raleway', sans-serif;
+    --main-font: 'Roboto', sans-serif;
+    
+    /* Colors */
+    --background: #3f006a0f;
+    --blue: #a048a8;
+    --black: #000;
+    --off-white: #f6f6f6;
+    --white: #fff;
+    --orange: #ffbf50;
+
+    /* Utils */
+    --small-box-shadow: 1px -1px 7px 0 #00000061;
+    --border: 1px solid #00000030;
+}
+
+html, body {
+    height: 100%;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    font-family: var(--main-font);
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: var(--title);
+}
+
+main {
+    flex: 1 0 auto;
+    background-color: var(--white);
+}
+
+
+#hero {
+    height: 100dvh;
+    width: 100dvw;
+    background:url("../images/food-book.jpg") no-repeat center center/cover;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+ }
+
+.display-4 {
+    font-size: calc(1.5rem + 3.7vw);
+    font-weight: 700;
+    line-height: 1.2;
+    color: #ffffff;
+    background-color: rgba(189, 112, 191, 0.9); /* Purple background with slight transparency */
+    padding: 1rem 2rem;
+    border-radius: 1rem;
+    display: inline-block;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+
+/* Footer */
+footer {
+    flex-shrink: 0;
+    background-color: var(--off-white);
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    border-top: var(--border);
+}
+
+.social-icon {
+    height: 2rem;
+    margin: 1rem;
+}
+
+/* Header */
+.navbar {
+    background-color: var(--off-white);
+    box-shadow: var(--small-box-shadow);
+}
+
+a.nav-link {
+    color: var(--black);
+}
+
+img.logo {
+    width: 10rem;
+}
+
+.active {
+    border-bottom: 2px solid var(--blue);
+    font-weight: 500;
+}
+
+
+
+#page-text {
+    background-color: #fdf3f8; /* Light, soft background for contrast */
+    color: #4a154b; /* Deep purple for readable text */
+    padding: 3rem 1.5rem;
+    text-align: center;
+}
+
+#page-text h2 {
+    font-size: 2.25rem;
+    font-weight: 700;
+    color: #bd70bf; /* Matches hero background */
+    margin-bottom: 1.5rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+#page-text p {
+    font-size: 1.125rem;
+    line-height: 1.8;
+    max-width: 900px;
+    margin: 0 auto;
+    font-weight: 400;
+}
+
+.bg-purple {
+    background-color: #bd70bf;
+}
+
+/* Form */
+
+form {
+    max-width: 600px;
+    margin: 2rem auto;
+    background-color: #fff0f8;
+    padding: 2rem;
+    border-radius: 1.5rem;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  }
+  
+  label.form-label {
+    font-weight: 600;
+    color: #5b2753;
+  }
+  
+  .form-control,
+  .form-select {
+    border-radius: 0.5rem;
+    border: 1px solid #bd70bf;
+    padding: 0.5rem 1rem;
+    font-size: 1rem;
+  }
+  
+  .form-control:focus,
+  .form-select:focus {
+    border-color: #a048a8;
+    box-shadow: 0 0 0 0.2rem rgba(189, 112, 191, 0.25);
+  }
+  
+  .btn-primary {
+    background-color: #bd70bf;
+    border-color: #bd70bf;
+    font-weight: 600;
+    padding: 0.5rem 2rem;
+    border-radius: 2rem;
+    transition: background-color 0.3s ease;
+  }
+  
+  .btn-primary:hover {
+    background-color: #a048a8;
+    border-color: #a048a8;
+  }
+  
+  .text-center {
+    margin-top: 2rem;
+  }
+
+/* Recipes */
+
+.card {
+    height: 90%;
+    margin-top: 1rem;
+
+}
+
+.recipes {
+    text-decoration: none;
+    color: var(--black);
+}
+
+.recipes:hover {
+    cursor: pointer;
+}
+
+.recipe-info {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.recipe-container {
+    display: flex;
+    flex-direction: column;
+
+}
+
+.ingredients, .instructions, .recipe-detail {
+    width: 100%;
+}
+
+.recipe-img{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.recipe-pic{
+    width: 100%;
+    height: auto;
+
+}
+
+
+/* Profiles */
+
+.profile-img {
+    width: 280px;
+    margin: 0 auto;
+}
+
+.profile-img img {
+    border-radius: 8px;
+    width: 100%;
+}
+
+.profile {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.info {
+    width: 100%;
+    text-align: center;
+}
+
+.profile-recipes {
+    width: 100%;
+}
+
+/* Meal Planner */
+
+.accordion-body {
+    display: flex;
+    flex-direction: column;
+}
+
+.accordion-button {
+    font-size: 1.5rem;
+    font-weight: 500;
+    margin: 0;
+}
+
+.meals {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+h3 > a {
+    text-align: center;
+    text-decoration: none;
+    font-weight: 700;
+}
+
+.thumb img {
+    width: 100%;
+}
+
+
+@media screen and (min-width:40em){
+
+    .responsive-heading {
+        font-size: calc(1.5rem + 3.7vw);
+    }
+
+    }
+    #page-text {
+        padding: 3rem 2rem;
+    }
+
+    #page-text h2 {
+        font-size: 2.25rem; /* 36px */
+    }
+
+    #page-text p {
+        font-size: 1.125rem; /* 18px */
+        max-width: 85%;
+    }
+
+    .form {
+        width: 50%;
+    }
+
+    .recipe-cont {
+        flex-direction: row;
+    }
+
+    .img-container {
+        flex-direction: row;
+        width: 29%;
+    }
+}
+
+@media screen and (min-width: 62.5em) {
+    #page-text {
+        padding: 4rem 2.5rem;
+    }
+
+    #page-text h2 {
+        font-size: 2.75rem; /* 44px */
+    }
+
+    #page-text p {
+        font-size: 1.25rem; /* 20px */
+        max-width: 60%;
+    }
+
+    .recipe-info {
+        flex-direction: row;
+        border: 1px solid var(--black);
+    }
+    .recipe-img {
+        width: 40%;
+        margin: 0 auto;
+    }
+
+    .recipe-detail {
+        width: 60%;
+        padding: 2rem;
+    }
+    
+    .recipe-container {
+        flex-direction: row;
+    }
+    
+    .ingredients{
+        width: 33.33%;
+    }
+
+    .instructions{
+        width: 66.66%;
+    }
+
+    .profile {
+        flex-direction: row;
+    }
+
+    .info {
+        width: 30%;
+    }
+
+    .profile-recipes {
+        width: 70%;
+        padding: 1.5rem 3rem;
+    }
+
+    .profile-recipes {
+        text-decoration: none;
+    }
+
+
+}
