@@ -18,7 +18,7 @@ class Profile(models.Model):
         force_format="WEBP",
         blank=False,
     )
-    bio = RichTextField(max_length=2500, null=True, blank=True)
+    bio = models.TextField(max_length=2500, null=True, blank=True)
 
     def __str__(self):
         return str(self.user.username)
