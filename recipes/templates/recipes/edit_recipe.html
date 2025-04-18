@@ -117,10 +117,17 @@
             <label for="cuisine_type" class="form-label">Cuisine Type</label>
             <select name="cuisine_type" id="cuisine_type" class="form-select">
                 <option value="">Select...</option>
-                <option value="italian" {% if form.cuisine_type.value == 'italian' %}selected{% endif %}>Italian</option>
-                <option value="chinese" {% if form.cuisine_type.value == 'chinese' %}selected{% endif %}>Chinese</option>
-                <option value="indian" {% if form.cuisine_type.value == 'indian' %}selected{% endif %}>Indian</option>
-                <option value="american" {% if form.cuisine_type.value == 'american' %}selected{% endif %}>American</option>
+                <option value="African" {% if form.cuisine_type.value == 'italian' %}selected{% endif %}>African</option>
+                <option value="American" {% if form.cuisine_type.value == 'chinese' %}selected{% endif %}>American</option>
+                <option value="Caribbean" {% if form.cuisine_type.value == 'indian' %}selected{% endif %}>Caribbean</option>
+                <option value="Asian" {% if form.cuisine_type.value == 'american' %}selected{% endif %}>Asian</option>
+                <option value="Middle Eastern" {% if form.cuisine_type.value == 'italian' %}selected{% endif %}>Middle Eastern</option>
+                <option value="Chinese" {% if form.cuisine_type.value == 'chinese' %}selected{% endif %}>Chinese</option>
+                <option value="Indian" {% if form.cuisine_type.value == 'indian' %}selected{% endif %}>Indian</option>
+                <option value="Pakistani" {% if form.cuisine_type.value == 'american' %}selected{% endif %}>Pakistani</option>
+                <option value="Indonesian" {% if form.cuisine_type.value == 'italian' %}selected{% endif %}>Indonesian</option>
+                <option value="European" {% if form.cuisine_type.value == 'chinese' %}selected{% endif %}>European</option>
+                <option value="Oceanic" {% if form.cuisine_type.value == 'indian' %}selected{% endif %}>Oceanic</option>
             </select>
         </div>
 
