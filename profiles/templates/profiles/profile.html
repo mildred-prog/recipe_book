@@ -23,10 +23,10 @@
 
             {% if request.user == profile.user %}
             <div>
-                <button id="myBtn" class="btn btn-primary w-25 mb-4">Edit</button>
+                <button id="myBtn" class="btn btn-primary w-50 w-md-25 mb-4">Edit</button>
             </div>
             <div>
-                <a href="{% url 'meal_planner' %}" class="btn btn-primary w-25 mb-4">Meals</a>
+                <a href="{% url 'meal_planner' %}" class="btn btn-primary w-50 w-md-25 mb-4">Meals</a>
             </div>
             {% endif %}
         </div>
