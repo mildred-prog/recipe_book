@@ -5,29 +5,107 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    
+    <!-- Primary Meta Tags -->
+    <meta name="title" content="Recipe Book - Your Personal Collection of Delicious Recipes">
+    <meta name="description" content="Recipe Book - Your personal collection of delicious recipes">
+    <meta name="keywords" content="recipes, cooking, food, cuisine, dishes, meals">
+    <meta name="author" content="Recipe Book">
+    <meta name="robots" content="index, follow">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="{% url 'home' %}">
+    <meta property="og:title" content="Recipe Book - Your Personal Collection of Delicious Recipes">
+    <meta property="og:description" content="Discover and share your favorite recipes with our community">
+    <meta property="og:image" content="{% static 'images/recipe-book-og.jpg' %}">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="{% url 'home' %}">
+    <meta property="twitter:title" content="Recipe Book - Your Personal Collection of Delicious Recipes">
+    <meta property="twitter:description" content="Discover and share your favorite recipes with our community">
+    <meta property="twitter:image" content="{% static 'images/recipe-book-og.jpg' %}">
+    
+    <!-- Favicon -->
+    <link rel="apple-touch-icon" sizes="180x180" href="{% static 'favicon/apple-touch-icon.png' %}">
+    <link rel="icon" type="image/png" sizes="32x32" href="{% static 'favicon/favicon-32x32.png' %}">
+    <link rel="icon" type="image/png" sizes="16x16" href="{% static 'favicon/favicon-16x16.png' %}">
+    <link rel="manifest" href="{% static 'favicon/site.webmanifest' %}">
+    <link rel="shortcut icon" href="{% static 'favicon/favicon.ico' %}">
+    
+    <!-- Preconnect to external domains -->
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com">
+    <link rel="preconnect" href="https://code.jquery.com">
+    
+    <!-- CSS -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.3/css/bootstrap.min.css" integrity="sha512-jnSuA4Ss2PkkikSOLtYs8BlYIeeIK1h99ty4YfvRPAlzr377vr3CXDb7sb7eEEBYjDtcYj+AjBH3FLv5uSJuXg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="{% static 'css/base.css' %}">
-     {% block extra_css %}{% endblock %}
-     
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    
+    {% block extra_css %}{% endblock %}
 
     {% block onload_js %}
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.3/js/bootstrap.min.js" integrity="sha512-ykZ1QQr0Jy/4ZkvKuqWn4iF3lqPZyij9iRv6sGqLRdTPkY69YX6+7wvVGmsdBbiIfN/8OdsI7HABjvEok6ZopQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     {% endblock %}
     <title>Recipe Book - {% block title %}{% endblock %}</title>
 </head>
-<body>
+<body class="bg-light">
     {% include 'includes/header.html' %}
 
-    <main>
+    <main class="container-fluid px-0">
+        {% if messages %}
+        <div class="container mt-3">
+            {% for message in messages %}
+            <div class="alert alert-{{ message.tags }} alert-dismissible fade show" role="alert">
+                {{ message }}
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>
+            {% endfor %}
+        </div>
+        {% endif %}
+
         {% block content %}
         {% endblock %}
-
     </main>
-    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
 
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
     {% include 'includes/footer.html' %}
 
-    {% block extra_js %}{% endblock %}
+    <!-- Toast Container -->
+    <div class="toast-container position-fixed bottom-0 end-0 p-3">
+        {% for message in messages %}
+        <div class="toast" role="alert" aria-live="assertive" aria-atomic="true">
+            <div class="toast-header">
+                <i class="fas fa-check-circle me-2 text-success"></i>
+                <strong class="me-auto">Success</strong>
+                <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+            </div>
+            <div class="toast-body">
+                {{ message }}
+            </div>
+        </div>
+        {% endfor %}
+    </div>
 
+    <script>
+        // Initialize all toasts
+        document.addEventListener('DOMContentLoaded', function() {
+            var toastElList = [].slice.call(document.querySelectorAll('.toast'));
+            var toastList = toastElList.map(function(toastEl) {
+                var toast = new bootstrap.Toast(toastEl, {
+                    autohide: true,
+                    delay: 3000
+                });
+                toast.show();
+                return toast;
+            });
+        });
+    </script>
+
+    {% block extra_js %}{% endblock %}
 </body>
 </html>
