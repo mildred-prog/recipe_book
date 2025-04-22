@@ -32,7 +32,7 @@ class MealPlanner(LoginRequiredMixin, TemplateView):
 
         meals = Meal.objects.filter(
             user=self.request.user, meal_date__in=days
-        ).order_by(reorder(meal_type=["breakfast", "lunch", "dinner"]))
+        ).order_by(reorder(meal_type=["", "lunch", "dinner"]))
 
         context = {"days": days, "meals": meals}
 
