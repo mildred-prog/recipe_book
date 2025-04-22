@@ -9,12 +9,12 @@ from django.contrib.auth.mixins import (
 )
 
 from django.db.models import Q
+from django.contrib import messages
 
 from django.contrib.auth.mixins import LoginRequiredMixin
 
 from .models import Recipe
 from .forms import RecipeForm
-
 
 class Recipes(ListView):
     """View all recipes"""
@@ -53,6 +53,7 @@ class AddRecipe(LoginRequiredMixin, CreateView):
 
     def form_valid(self, form):
         form.instance.user = self.request.user
+        messages.success(self.request, 'Recipe added successfully!')
         return super(AddRecipe, self).form_valid(form)
  
  
@@ -64,13 +65,21 @@ class EditRecipe(LoginRequiredMixin, UserPassesTestMixin, UpdateView):
     success_url = '/recipes/'
     
     def test_func(self):
-        return self.request.user == self.get_object().user    
+        return self.request.user == self.get_object().user
+
+    def form_valid(self, form):
+        messages.success(self.request, 'Recipe updated successfully!')
+        return super().form_valid(form)
 
 
 class DeleteRecipe(LoginRequiredMixin, UserPassesTestMixin, DeleteView):
     """"Delete a recipe """
     model = Recipe
-    success_url = '/recipes'
+    success_url = '/recipes/'
 
     def test_func(self):
         return self.request.user == self.get_object().user
+
+    def form_valid(self, form):
+        messages.success(self.request, 'Recipe deleted successfully!')
+        return super().form_valid(form)
