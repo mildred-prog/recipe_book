@@ -20,14 +20,16 @@
             <div id="collapse{{forloop.counter}}" class="accordion-collapse collapse" aria-labelledby="heading{{forloop.counter}}"
                 data-bs-parent="#accordionExample">
 
-                <div class="d-flex flex-column align-items-center p-2">
-                    <p>Add or Update Meals</p>
-                    <a href="{% url 'get_meals' day 'breakfast' %}" class="btn btn-primary w-25 mb-2">Breakfast</a>
-                    <a href="{% url 'get_meals' day 'lunch' %}" class="btn btn-primary w-25 mb-2">Lunch</a>
-                    <a href="{% url 'get_meals' day 'dinner' %}" class="btn btn-primary w-25 mb-2">Dinner</a>
+                <div class="d-flex flex-column align-items-center p-3">
+                    <p class="text-center mb-3">Add or Update Meals</p>
+                    <div class="d-grid gap-2 col-12 col-md-6 col-lg-4">
+                        <a href="{% url 'get_meals' day 'breakfast' %}" class="btn btn-primary">Breakfast</a>
+                        <a href="{% url 'get_meals' day 'lunch' %}" class="btn btn-primary">Lunch</a>
+                        <a href="{% url 'get_meals' day 'dinner' %}" class="btn btn-primary">Dinner</a>
+                    </div>
                 </div>
 
-                <hr>
+                <hr class="my-4">
 
                 <div class="accordion-body">
                     {% for meal in meals %} 
