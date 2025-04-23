@@ -1,5 +1,6 @@
 from django.views.generic import TemplateView, UpdateView
 from django.contrib.auth.mixins import UserPassesTestMixin, LoginRequiredMixin
+from django.shortcuts import get_object_or_404
 
 from .models import Profile
 from .forms import ProfileForm
@@ -11,12 +12,12 @@ class Profiles(TemplateView):
     template_name = "profiles/profile.html"
 
     def get_context_data(self, **kwargs):
-        profile = Profile.objects.get(user=self.kwargs["pk"])
+        user_id = self.kwargs["pk"]
+        profile = get_object_or_404(Profile, user_id=user_id)
         context = {
             "profile": profile,
             'form': ProfileForm(instance=profile)
         }
-
         return context
 
 
