@@ -2,49 +2,9 @@
 
 {% block title %}Add Recipe{% endblock %}
 
-
 {% block extra_css %}
 <link href="https://cdn.jsdelivr.net/npm/summernote@0.9.0/dist/summernote-lite.min.css" rel="stylesheet">
 {% endblock %}
-
-{% block extra_js %}
-<script src="https://cdn.jsdelivr.net/npm/summernote@0.9.0/dist/summernote-lite.min.js"></script>
-
-<script>
-    $(document).ready(function () {
-        $('#ingredients').summernote({
-            placeholder: 'List the ingredients...',
-            tabsize: 2,
-            height: 150,
-            toolbar: [
-              ['style', ['style']],
-              ['font', ['bold', 'underline', 'clear']],
-              ['color', ['color']],
-              ['para', ['ul', 'ol', 'paragraph']],
-              ['table', ['table']],
-              ['insert', ['link']],
-              ['view', ['help']]
-            ]
-        });
-
-        $('#instructions').summernote({
-            placeholder: 'Describe the cooking instructions...',
-            tabsize: 2,
-            height: 150,
-            toolbar: [
-              ['style', ['style']],
-              ['font', ['bold', 'underline', 'clear']],
-              ['color', ['color']],
-              ['para', ['ul', 'ol', 'paragraph']],
-              ['table', ['table']],
-              ['insert', ['link']],
-              ['view', ['help']]
-            ]
-        });
-    });
-</script>
-{% endblock %}
-
 
 {% block content %}
 <div class="container">
@@ -67,7 +27,6 @@
         </div>
         {% endif %}
         
-
         <!-- Recipe Title -->
         <div class="mb-3">
             <label for="title" class="form-label">Recipe Title</label>
@@ -92,7 +51,6 @@
             <textarea name="instructions" id="instructions" class="form-control" rows="5"></textarea>
         </div>
 
-
         <!-- Recipe Image -->
         <div class="mb-3">
             <label for="image" class="form-label">Recipe Image</label>
@@ -115,7 +73,6 @@
                 <option value="Dinner">Dinner</option>
             </select>
         </div>
-
 
         <!-- Cuisine Type -->
         <div class="mb-3">
