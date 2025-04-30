@@ -1,5 +1,5 @@
 from django.views.generic import (
-    CreateView, ListView, 
+    CreateView, ListView,
     DetailView, DeleteView,
     UpdateView
 )
@@ -11,10 +11,9 @@ from django.contrib.auth.mixins import (
 from django.db.models import Q
 from django.contrib import messages
 
-from django.contrib.auth.mixins import LoginRequiredMixin
-
 from .models import Recipe
 from .forms import RecipeForm
+
 
 class Recipes(ListView):
     """View all recipes"""
@@ -44,8 +43,10 @@ class RecipeDetail(DetailView):
     model = Recipe
     context_object_name = "recipe"
 
+
 class AddRecipe(LoginRequiredMixin, CreateView):
     """Add recipe view"""
+
     template_name = "recipes/add_recipe.html"
     model = Recipe
     form_class = RecipeForm
@@ -55,15 +56,16 @@ class AddRecipe(LoginRequiredMixin, CreateView):
         form.instance.user = self.request.user
         messages.success(self.request, 'Recipe added successfully!')
         return super(AddRecipe, self).form_valid(form)
- 
- 
+
+
 class EditRecipe(LoginRequiredMixin, UserPassesTestMixin, UpdateView):
     """Edit a recipe"""
+
     template_name = 'recipes/edit_recipe.html'
     model = Recipe
     form_class = RecipeForm
     success_url = '/recipes/'
-    
+
     def test_func(self):
         return self.request.user == self.get_object().user
 
@@ -73,7 +75,8 @@ class EditRecipe(LoginRequiredMixin, UserPassesTestMixin, UpdateView):
 
 
 class DeleteRecipe(LoginRequiredMixin, UserPassesTestMixin, DeleteView):
-    """"Delete a recipe """
+    """Delete a recipe"""
+
     model = Recipe
     success_url = '/recipes/'
 
