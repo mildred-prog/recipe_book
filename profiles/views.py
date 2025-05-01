@@ -13,7 +13,7 @@ class Profiles(TemplateView):
 
     def get_context_data(self, **kwargs):
         user_id = self.kwargs["pk"]
-        profile = get_object_or_404(Profile, user_id=user_id)
+        profile = get_object_or_404(Profile, id=user_id)
         context = {
             "profile": profile,
             'form': ProfileForm(instance=profile)

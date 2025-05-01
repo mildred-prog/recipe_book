@@ -47,7 +47,7 @@
     <div id="myModal" class="modal">
         <div class="modal-content">
             <span class="close">&times;</span>
-            <form method="POST" action="{% url 'edit_profile' request.user.id %}" enctype="multipart/form-data" class="p-4">
+            <form method="POST" action="{% url 'edit_profile' request.user.profile.id %}" enctype="multipart/form-data" class="p-4">
                 <h2 class="text-center mb-4">Edit</h2>
                 {% csrf_token %}
                 <div class="form-group">

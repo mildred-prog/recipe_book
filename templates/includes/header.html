@@ -23,7 +23,7 @@
             </li>
             {% if request.user.is_authenticated %}
             <li class="nav-item">
-              <a class="nav-link {% if url_name == 'profile' %}active{% endif %}" href="{% url 'profile' request.user.id %}">Profile</a>
+              <a class="nav-link {% if url_name == 'profile' %}active{% endif %}" href="{% url 'profile' request.user.profile.pk %}">Profile</a>
             </li>
             <li class="nav-item">
               <a class="nav-link {% if url_name == 'accounts_logout' %}active{% endif %}" href="/accounts/logout/">Logout</a>

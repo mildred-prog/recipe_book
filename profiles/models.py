@@ -10,7 +10,7 @@ from django_resized import ResizedImageField
 class Profile(models.Model):
     """Profile model"""
 
-    user = models.ForeignKey(
+    user = models.OneToOneField(
         User,
         related_name="profile",
         on_delete=models.CASCADE
