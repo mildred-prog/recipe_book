@@ -208,8 +208,7 @@ Manual testing by checking the following:
 | Search Functionality | Incomplete search results | Fixed Q object queries in Recipes view | Incorrect query conditions | Test search functionality with various inputs |
 | Meal Planner Logic | Null calories handling | Added default calories value (9999) | Null value conversion error | Add proper null checks and defaults |
 | User Authentication | Unauthorized recipe edits | Added UserPassesTestMixin | Missing permission checks | Implement proper authentication checks |
-| Rich Text Editor | Summernote initialization errors | Added proper initialization in profile.js | Missing editor initialization | Ensure proper script loading order |
-| Database Queries | Slow recipe loading | Added proper indexing and ordering | Missing database optimization | Use proper database indexing |
+|   Database Queries | Slow recipe loading | Added proper indexing and ordering | Missing database optimization | Use proper database indexing |
 | Form Error Display | Error messages not showing | Added error message display in templates | Missing error template handling | Implement proper error message display |
 | Image Alt Text | Missing alt text validation | Added required alt text field | Missing accessibility features | Always require alt text for images |
 | Recipe Deletion | Cascade delete issues | Fixed foreign key relationships | Improper model relationships | Use proper cascade delete settings |
